@@ -1,7 +1,11 @@
 'use strict';
 
 angular
-  .module('agendaApp', [])
+  .module('agendaApp', [
+    'ngAnimate',
+    'ngAria', 
+    'ngMaterial'
+    ])
     .run(function(){
       console.log('agendaApp is ready')
      });
