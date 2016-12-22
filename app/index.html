@@ -57,7 +57,7 @@
                 
               <md-input-container class="md-block" flex-gt-sm style="width: 30%; float: left; margin-left: 5%;">
                 <label>Nombre</label>
-                <input required name="Nombre" ng-model="nuevoContacto.Nombre">
+                <input required name="Nombre" id="Nombre" ng-model="nuevoContacto.nombre">
                 <div ng-messages="projectForm.clientName.$error">
                   <div ng-message="required">No es el formato esperado.</div>
                 </div>
@@ -66,7 +66,7 @@
 
               <md-input-container class="md-block" flex-gt-sm style="width: 30%; float: left;">
                 <label>Telefono</label>
-                <input required name="Telefono" ng-model="nuevoContacto.Telefono">
+                <input required name="Telefono" id="Telefono" ng-model="nuevoContacto.telefono">
                 <div ng-messages="projectForm.clientName.$error">
                   <div ng-message="required">No es el formato esperado.</div>
                 </div>
@@ -74,7 +74,7 @@
                 
               <md-input-container class="md-block" flex-gt-sm style="width: 30%; float: right; margin-right: 5%; ">
                 <label>Movil</label>
-                <input required name="Movil" ng-model="nuevoContacto.Movil">
+                <input required name="Movil" id="Movil" ng-model="nuevoContacto.movil">
                 <div ng-messages="projectForm.clientName.$error">
                   <div ng-message="required">No es el formato esperado.</div>
                 </div>
@@ -87,7 +87,7 @@
 
               <md-input-container class="md-block" flex-gt-sm style="width: 30%; float: left; margin-left: 5%;">
                 <label>Calle, No.</label>
-                <input required name="Calle" ng-model="nuevoContacto.Calle">
+                <input required name="Calle" id="Calle" ng-model="nuevoContacto.calle">
                 <div ng-messages="projectForm.clientName.$error">
                   <div ng-message="required">No es el formato esperado.</div>
                 </div>
@@ -95,7 +95,7 @@
 
               <md-input-container class="md-block" flex-gt-sm style="width: 30%; float: left;">
                 <label>Colonia</label>
-                <input required name="Colonia" ng-model="nuevoContacto.Colonia">
+                <input required name="Colonia" id="Colonia" ng-model="nuevoContacto.colonia">
                 <div ng-messages="projectForm.clientName.$error">
                   <div ng-message="required">No es el formato esperado.</div>
                 </div>
@@ -103,7 +103,7 @@
                 
               <md-input-container class="md-block" flex-gt-sm style="width: 30%; float: right; margin-right: 5%;">
                 <label>C.P.</label>
-                <input required name="CP" ng-model="nuevoContacto.CP">
+                <input required name="CP" id="CP" ng-model="nuevoContacto.cp">
                 <div ng-messages="projectForm.clientName.$error">
                   <div ng-message="required">No es el formato esperado.</div>
                 </div>
@@ -117,8 +117,7 @@
             ng-click="agregarContacto(nuevoContacto)"
             ng-show="addContact"
             style="margin-right: 15%; margin-bottom: 15px; float: right;">Agregar
-          </md-button>
-          <!--<pre>{{nuevoContacto|json}}</pre>-->          
+          </md-button>       
           </div>
 
 
@@ -130,17 +129,17 @@
                 
               <md-input-container class="md-block" flex-gt-sm style="width: 30%; float: left; margin-left: 5%;">
                 <label>Nombre</label>
-                <input required name="Nombre" ng-model="existingContacto.Nombre">
+                <input required name="Nombre" id="Nombre" ng-model="existingContacto.nombre">
               </md-input-container>
 
               <md-input-container class="md-block" flex-gt-sm style="width: 30%; float: left;">
                 <label>Telefono</label>
-                <input required name="Telefono" ng-model="existingContacto.Telefono">
+                <input required name="Telefono" id="Telefono" ng-model="existingContacto.telefono">
               </md-input-container>
                 
               <md-input-container class="md-block" flex-gt-sm style="width: 30%; float: right; margin-right: 5%; ">
                 <label>Movil</label>
-                <input required name="Movil" ng-model="existingContacto.Movil">
+                <input required name="Movil" id="Movil" ng-model="existingContacto.movil">
               </md-input-container>
 
             </div>
@@ -150,17 +149,17 @@
 
               <md-input-container class="md-block" flex-gt-sm style="width: 30%; float: left; margin-left: 5%;">
                 <label>Calle, No.</label>
-                <input required name="Calle" ng-model="existingContacto.Calle">
+                <input required name="Calle" id="Calle" ng-model="existingContacto.calle">
               </md-input-container>
 
               <md-input-container class="md-block" flex-gt-sm style="width: 30%; float: left;">
                 <label>Colonia</label>
-                <input required name="Colonia" ng-model="existingContacto.Colonia">
+                <input required name="Colonia" id="Colonia" ng-model="existingContacto.colonia">
               </md-input-container>
                 
               <md-input-container class="md-block" flex-gt-sm style="width: 30%; float: right; margin-right: 5%;">
                 <label>C.P.</label>
-                <input required name="CP" ng-model="existingContacto.CP">
+                <input required name="CP" id="CP" ng-model="existingContacto.cp">
               </md-input-container>
             </div>  
 
@@ -177,14 +176,14 @@
     </md-toolbar>
 
     <div class="container" style="width: 100%;" layout="column">
-      <div ng-repeat="con in contactos | orderBy: 'Nombre' | filter:buscar " style="width: 85%; margin-left: 3%;" >
+      <div ng-repeat="con in contactos | orderBy: 'nombre' | filter:buscar " style="width: 85%; margin-left: 3%;" >
        <md-card flex>
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline"> {{con.Nombre }} </span>
-            <span class="md-subhead"> {{con.Telefono}} </span>
-            <span class="md-subhead"> {{con.Movil}} </span>
-            <span class="md-subhead"> {{ con.Calle +' Col. '+con.Colonia+' '+con.CP }} </span>            
+            <span class="md-headline"> {{con.nombre }} </span>
+            <span class="md-subhead"> {{con.telefono}} </span>
+            <span class="md-subhead"> {{con.movil}} </span>
+            <span class="md-subhead"> {{ con.calle +' Col. '+con.colonia+' '+con.cp }} </span>            
           </md-card-title-text>
           <md-card-title-media>
             <div class="md-media-sm card-media"></div>
@@ -219,7 +218,6 @@
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/agendaController.js"></script>
-    <script src="scripts/conFactory.js"></script>
     <!-- endbuild -->
 
   </body>
